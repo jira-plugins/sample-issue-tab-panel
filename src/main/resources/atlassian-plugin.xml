@@ -1,4 +1,8 @@
 <atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <!--
+    XML Reference
+    : https://developer.atlassian.com/docs/getting-started/configuring-the-plugin-descriptor/atlassian-plugin-xml-element-reference
+    -->
     <plugin-info>
         <description>${project.description}</description>
         <version>${project.version}</version>
@@ -32,7 +36,7 @@
     <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties" />
     <web-panel key="myPanel" location="atl.jira.comments">
            <resource name="view" type="static"><![CDATA[<b>Hello World!</b>]]></resource>
-       </web-panel>
+    </web-panel>
     <issue-tabpanel key="test-panel1" name="Test Panel 1"
             class="com.lge.tvlab.jiraplugin.testpanel.AutomationTestReportPanel">
         <!--
@@ -44,11 +48,11 @@
     </issue-tabpanel>
 
 
-    <!-- TEst Config -->
+    <!-- Test Config -->
+    <!-- component-import -->
     <component-import key="userManager" interface="com.atlassian.sal.api.user.UserManager" />
     <component-import key="loginUriProvider" interface="com.atlassian.sal.api.auth.LoginUriProvider" />
     <component-import key="renderer" interface="com.atlassian.templaterenderer.velocity.one.six.VelocityTemplateRenderer" />
-
     <servlet key="admin-servlet" class="com.lge.tvlab.jiraplugin.testpanel.AdminServlet">
         <url-pattern>/xproduct/admin</url-pattern>
     </servlet>
