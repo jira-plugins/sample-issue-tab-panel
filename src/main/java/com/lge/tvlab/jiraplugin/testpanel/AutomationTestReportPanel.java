@@ -18,13 +18,22 @@ public class AutomationTestReportPanel implements IssueTabPanel{
     }
 
     public  boolean showPanel(Issue issue, User remoteUser){
-        return true;
+        String projectKey = issue.getProjectObject().getKey();
+        if ( projectKey.equals("SPG")
+                || projectKey.equals("CMB")
+        )
+        {
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public List<IssueAction> getActions(Issue issue, User remoteUser){
         List<IssueAction> displayedAction = new ArrayList<IssueAction>();
         AutomationTestReportMessage test1 = new AutomationTestReportMessage();
         String testMessage = issue.getKey() + "/"
+                + issue.getProjectObject().getKey() + "/"
                + issue.getAssignee() ;
         test1.setIssueKey(testMessage);
         displayedAction.add(test1);
