@@ -11,8 +11,7 @@
 
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="panel1"/>
-    <resource type="i18n" name="i18n" location="com.atlassian.tutorial.xproductadminui.i18n" />
-    
+
     <!-- add our web resources -->
     <web-resource key="panel1-resources" name="panel1 Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
@@ -53,9 +52,20 @@
     <servlet key="admin-servlet" class="com.lge.tvlab.jiraplugin.testpanel.AdminServlet">
         <url-pattern>/xproduct/admin</url-pattern>
     </servlet>
-    <web-item key="jira-menu-item" name="XProduct Admin" section="system.admin/globalsettings" weight="10" application="jira">
+    <web-resource name="Admin Web Resources" key="admin-resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <!-- <resource type="download" name="admin.js" location="scripts/admin.js" /> -->
+    </web-resource>
+    <web-item key="jira-menu-item" name="XProduct Admin" section="admin_plugins_menu/source_control"
+              weight="10" application="jira">
         <description>Link to xproduct-admin page.</description>
-        <label key="xproduct.admin.label" />
+        <label key="XProduct Admin UI" />
+        <link linkId="xproduct-admin-link">/plugins/servlet/xproduct/admin</link>
+    </web-item>
+    <web-item key="jira-menu-item2" name="Soyul Admin" section="admin_plugins_menu/source_control"
+              weight="10" application="jira">
+        <description>Soyul Link</description>
+        <label key="Soyul Admin UI" />
         <link linkId="xproduct-admin-link">/plugins/servlet/xproduct/admin</link>
     </web-item>
 </atlassian-plugin>
