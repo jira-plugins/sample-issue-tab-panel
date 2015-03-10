@@ -24,6 +24,9 @@ public class AutomationTestReportPanel implements IssueTabPanel{
     public List<IssueAction> getActions(Issue issue, User remoteUser){
         List<IssueAction> displayedAction = new ArrayList<IssueAction>();
         AutomationTestReportMessage test1 = new AutomationTestReportMessage();
+        String testMessage = issue.getKey() + "/"
+               + issue.getAssignee() ;
+        test1.setIssueKey(testMessage);
         displayedAction.add(test1);
         return displayedAction;
     }
