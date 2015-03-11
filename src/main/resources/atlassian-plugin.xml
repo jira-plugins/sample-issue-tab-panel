@@ -2,6 +2,7 @@
     <!--
     XML Reference
     : https://developer.atlassian.com/docs/getting-started/configuring-the-plugin-descriptor/atlassian-plugin-xml-element-reference
+    : https://developer.atlassian.com/docs/getting-started/plugin-modules/plugin-module-index
     -->
     <plugin-info>
         <description>${project.description}</description>
@@ -71,5 +72,13 @@
         <description>Soyul Link</description>
         <label key="Soyul Admin UI" />
         <link linkId="xproduct-admin-link">/plugins/servlet/xproduct/admin</link>
+    </web-item>
+    <!--
+    <web-item key="jira-menu-item3" name="Sunjoo" section="browse_link/project_view_all">
+    -->
+    <web-item key="jira-menu-item3" name="Sunjoo" section="system.top.navigation.bar">
+        <description>Sunjoo link desc</description>
+        <label key="Sunjoo Admin UI2"/>
+        <link linkId="xproduct-admin-link">http://www.daum.net/</link>
     </web-item>
 </atlassian-plugin>
